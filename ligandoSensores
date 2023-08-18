@@ -1,0 +1,5 @@
+// Para ligar o LED, coloca o resistor no positivo
+   e a perna negativa direto no negativo da proto
+
+// Para ligar o sensor de luz, é na mesma linha o resistor, o sensor e a fita que direto na porta 
+   e a perna positiva diretamente na positivo
