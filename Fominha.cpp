@@ -4,16 +4,16 @@
 // Baseado no programa original de Martin Mason  
    
 //Pinos de conexao do modulo TCS230  
-const int s0 = 8;  
-const int s1 = 9;  
-const int s2 = 12;  
-const int s3 = 11;  
-const int out = 10;   
+const int s0 = 8;     // ROXO
+const int s1 = 9;     // LARANJA
+const int s2 = 12;    // AZUL E ROXO
+const int s3 = 11;    // VERDE
+const int out = 10;   // VERMELHO E AMARELO
    
 //Pinos dos leds  
-int pinoledverm = 2;  
-int pinoledverd = 3;  
-int pinoledazul = 4;  
+int vermelho = 2;  
+int verde = 3;  
+int azul = 4;  
     
 //Variaveis que armazenam o valor das cores  
 int red = 0;  
@@ -27,9 +27,9 @@ void setup()
   pinMode(s2, OUTPUT);  
   pinMode(s3, OUTPUT);  
   pinMode(out, INPUT);  
-  pinMode(pinoledverm, OUTPUT);  
-  pinMode(pinoledverd, OUTPUT);  
-  pinMode(pinoledazul, OUTPUT);  
+  pinMode(vermelho, OUTPUT);  
+  pinMode(verde, OUTPUT);  
+  pinMode(azul, OUTPUT);  
   Serial.begin(9600);  
   digitalWrite(s0, HIGH);  
   digitalWrite(s1, LOW);  
@@ -50,32 +50,32 @@ void loop()
   if (red < blue && red < green && red < 100)  
   {  
    Serial.println("Vermelho");  
-   digitalWrite(pinoledverm, HIGH); //Acende o led vermelho  
-   digitalWrite(pinoledverd, LOW);  
-   digitalWrite(pinoledazul, LOW);  
+   digitalWrite(vermelho, HIGH); //Acende o led vermelho  
+   digitalWrite(verde, LOW);  
+   digitalWrite(azul, LOW);  
   }  
   //Verifica se a cor azul foi detectada  
   else if (blue < red && blue < green)   
   {  
    Serial.println("Azul");  
-   digitalWrite(pinoledverm, LOW);  
-   digitalWrite(pinoledverd, LOW);  
-   digitalWrite(pinoledazul, HIGH); //Acende o led azul  
+   digitalWrite(vermelho, LOW);  
+   digitalWrite(verde, LOW);  
+   digitalWrite(azul, HIGH); //Acende o led azul  
   }  
   //Verifica se a cor verde foi detectada  
-  else if (green < red && green < blue)  
+  else if (green > red && green > blue)  
   {  
    Serial.println("Verde");  
-   digitalWrite(pinoledverm, LOW);  
-   digitalWrite(pinoledverd, HIGH); //Acende o led verde  
-   digitalWrite(pinoledazul, LOW);  
+   digitalWrite(vermelho, LOW);  
+   digitalWrite(verde, HIGH); //Acende o led verde  
+   digitalWrite(azul, LOW);  
   }  
   Serial.println();  
   //Aguarda 2 segundos, apaga os leds e reinicia o processo  
   delay(2000);   
-  digitalWrite(pinoledverm, LOW);  
-  digitalWrite(pinoledverd, LOW);  
-  digitalWrite(pinoledazul, LOW);  
+  digitalWrite(vermelho, LOW);  
+  digitalWrite(verde, LOW);  
+  digitalWrite(azul, LOW);  
  }  
     
 void color()  
