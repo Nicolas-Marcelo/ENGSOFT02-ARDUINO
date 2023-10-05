@@ -1,5 +1,15 @@
-// Para ligar o LED, coloca o resistor no positivo
-   e a perna negativa direto no negativo da proto
+// LIGANDO O LED 
+   A perna positiva do LED é ligado o resistor e na mesma conexão liga na porta logica, ou ja direto na porta
+   A perna negativa é apenas no negativo
 
 // Para ligar o sensor de luz, é na mesma linha o resistor, o sensor e a fita que direto na porta 
    e a perna positiva diretamente na positivo
+
+// LIGANDO SENSOR DE CORES TCS230
+   O sensor tem 7 pinos sendo, S0, S1, S2, S3, OUT, GND, VCC
+   O S0 e S1 são ligados em qualquer porta OUTPUT, pois lê a frenquencia dos pulsos de cada cor
+   O S1 e S2 são ligados em qualquer porta OUTPUT, pois lê envia identifica qual cor está sendo lida
+   O OUT ele envia as informações das cores para o arduino
+   O GND é o negativo
+   O VCC é o positivo
+
