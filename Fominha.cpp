@@ -1,9 +1,4 @@
-// Programa : Detector de cores usando modulo TCS230  
-// Alteracoes e comentarios : Arduino e Cia  
-//  
-// Baseado no programa original de Martin Mason  
-   
-//Pinos de conexao do modulo TCS230  
+   //Pinos de conexao do modulo TCS230  
 const int s0 = 8;     // ROXO
 const int s1 = 9;     // LARANJA
 const int s2 = 12;    // AZUL E ROXO
@@ -63,7 +58,7 @@ void loop()
    digitalWrite(azul, HIGH); //Acende o led azul  
   }  
   //Verifica se a cor verde foi detectada  
-  else if (green > red && green > blue)  
+  else if (green < red && green < blue)  
   {  
    Serial.println("Verde");  
    digitalWrite(vermelho, LOW);  
@@ -77,7 +72,8 @@ void loop()
   digitalWrite(verde, LOW);  
   digitalWrite(azul, LOW);  
  }  
-    
+   
+
 void color()  
 {  
   //Rotina que le o valor das cores  
